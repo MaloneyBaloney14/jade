@@ -618,11 +618,11 @@ jade_defs.plot = function(jade) {
                     if (nx > dataset.max_x) nx = dataset.max_x;  // poor-man's clipping
 
                     if (typeof y == 'number') {  // indicates a Z value
-                        svg.append(msvg('line',{x1:x, y1:ylabel, x2:nx, y2:ylabel,
+                        svg.appendChild(msvg('line',{x1:x, y1:ylabel, x2:nx, y2:ylabel,
                                                 stroke: color,
                                                 'stroke-width':1}));
                     } else {
-                        svg.append(msvg('rect',{x:x, y:y1, width:nx-x, height:y0-y1,
+                        svg.appendChild(msvg('rect',{x:x, y:y1, width:nx-x, height:y0-y1,
                                                 stroke: color,
                                                 'stroke-width':1,
                                                 fill: (y === undefined) ? color : 'none'
@@ -633,7 +633,7 @@ jade_defs.plot = function(jade) {
                             var x1 = nx; //Math.min(dataset.max_x,nx);
                             // rough check to see if label fits...
                             if (xcenter > x && xcenter < nx && x1-x0 > 6*y.length) {
-                                svg.append(mtxt(y,(x0+x1)/2,ylabel,'center','middle',{
+                                svg.appendChild(mtxt(y,(x0+x1)/2,ylabel,'center','middle',{
                                     style: style,
                                     'clip': make_clip(x0,y0,x1-x0,y0-y1),
                                     fill: color
